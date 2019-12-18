@@ -25,6 +25,8 @@
       </button>
       <span routerLink="">World Bank</span>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <main>
+      <ng-content select="main"></ng-content>
+    </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
