@@ -183,6 +183,10 @@
               "serverTarget": "world-bank:server:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
