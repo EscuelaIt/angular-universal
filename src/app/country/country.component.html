@@ -1,1 +1,3 @@
-<p>country works!</p>
+<pre *ngIf="country$ | async as country">
+  {{ country | json }}
+</pre>

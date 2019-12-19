@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-country',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./country.component.css']
 })
 export class CountryComponent implements OnInit {
-
-  constructor() { }
+  country$: Observable<any>;
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private api: ApiService
+  ) {}
 
   ngOnInit() {
+    const countryId = this.activatedRoute.snapshot.params.id;
+    this.country$ = this.api.getCountryById$(countryId);
   }
-
 }
