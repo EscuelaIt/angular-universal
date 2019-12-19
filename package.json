@@ -12,7 +12,7 @@
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run world-bank:server:production --bundleDependencies all",
-    "build-and-serve:ssr": "npm run build:ssr && npm serve:ssr"
+    "build-and-serve:ssr": "npm run build:ssr && npm run serve:ssr"
   },
   "private": true,
   "dependencies": {
