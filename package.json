@@ -9,7 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start:shell": "ng run world-bank:app-shell",
-    "server:http": "angular-http-server --open -p 8082  --path ./dist/world-bank/browser"
+    "server:http": "angular-http-server --open -p 8082  --path ./dist/world-bank/browser",
+    "predeploy": "ng run world-bank:app-shell --configuration production",
+    "deploy": "ng deploy --no-build"
   },
   "private": true,
   "dependencies": {
