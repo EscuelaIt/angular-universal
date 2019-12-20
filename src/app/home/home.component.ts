@@ -1,7 +1,8 @@
-import { isPlatformBrowser } from '@angular/common';
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from '../api.service';
+import { SeoService } from '../seo.service';
+import { UniversalService } from '../universal.service';
 
 @Component({
   selector: 'app-home',
@@ -12,16 +13,14 @@ export class HomeComponent implements OnInit {
   countries$: Observable<any[]>;
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: any,
-    private api: ApiService
+    private universal: UniversalService,
+    private api: ApiService,
+    private seo: SeoService
   ) {}
 
   ngOnInit() {
     this.countries$ = this.api.getAllCountries$();
-    if (isPlatformBrowser(this.platformId)) {
-      localStorage.setItem('EscuelaIT', 'Angular-Universal');
-    } else {
-      console.log('Estamos en el servidor');
-    }
+    this.seo.setTitle('EscuelaIT: Universal');
+    this.universal.setItem('EscuelaIT', 'Angular-Universal');
   }
 }
